@@ -6,6 +6,8 @@ const connection = require('./database/db')
 
 
 app.use(express.static('public'));
+app.use(express.json());
+
 app.get('/', (req, res) => {
     res.send('Daje server!')
 });

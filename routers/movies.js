@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router();
+const moviesController = require('../controllers/moviesController')
 
 // index
-router.get('/', function (req, res) {
-    res.send('Qui ci dovrebbero essere tutti i movies')
-});
+router.get('/', moviesController.index);
+
 // show
 router.get('/:id', function (req, res) {
     res.send(`Qui ti prendi il cazzo di film con id: ${id}`)
