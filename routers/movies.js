@@ -6,9 +6,7 @@ const moviesController = require('../controllers/moviesController')
 router.get('/', moviesController.index);
 
 // show
-router.get('/:id', function (req, res) {
-    res.send(`Qui ti prendi il cazzo di film con id: ${id}`)
-});
+router.get('/:id', moviesController.show);
 
 //store
 router.post('/', function (req, res) {

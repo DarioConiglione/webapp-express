@@ -10,9 +10,21 @@ function index(req, res) {
     })
 }
 
+//show
+function show(req, res) {
+    const id = parseInt(req.params.id);
+    const sql = 'SELECT * FROM movies WHERE id = ?'
+    connection.query(sql, [id], (err, results) => {
+        console.log(results);
+        if (err) return res.status(500).json({ error: true, message: err.message })
+        if (results.length === 0) return res.status(404).json({ error: `Non abbiamo questo film, attaccati a 'sto Netflix` })
+        res.json(results)
+    })
+}
 
 
 
 
-module.exports = { index }
+
+module.exports = { index, show }
 
